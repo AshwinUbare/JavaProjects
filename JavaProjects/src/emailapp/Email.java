@@ -36,7 +36,7 @@ public class Email {
 			 System.out.println("Your Password: "+this.password);
 	
 			 // generating email;
-			 email=firstName.toLowerCase()+"."+lastName.toLowerCase()+"@"+department+"."+companyName;
+			 email=firstName.toLowerCase()+"."+lastName.toLowerCase()+"@"+department.toLowerCase()+"."+companyName;
 			 System.out.println("Your Email: "+email);
 		 }
 		 else
@@ -54,11 +54,11 @@ public class Email {
 	  // we can use Switch or if-else condition
 	    
 	    if(depNumber == 1)
-	     return "sales";
+	     return "Sales";
 	    else if(depNumber == 2)
-	    	return "devlopment";
+	    	return "Devlopment";
 	    else if(depNumber == 3)
-	    	return "accounting";
+	    	return "Accounting";
 	    else
 	    	return "";
 	}
