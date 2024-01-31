@@ -6,8 +6,10 @@ public class Email {
 	
 	private String firstName;
 	private String lastName;
+	private String email;
 	private String password;
 	private int passLength;
+	private String companyName;
 	private String department;
 	private int mailboxCapacity;
 	private String alternateEmail;
@@ -16,16 +18,22 @@ public class Email {
 	{
 		 this.firstName=firstName;
 		 this.lastName=lastName;
-		 this.passLength=7;
+		 this.passLength=10;
+		 this.companyName="confix.com";
 		 System.out.println("Email Created: "+this.firstName+" "+this.lastName);
 		 
 		 // calling method and asking to user for department and response is store.
 		 this.department=setDepartment();
-		 System.out.println("Department: "+this.department);
+		 System.out.println("\nDepartment: "+this.department);
 		 
 		 //calling method who gives randomPassword
 		 this.password=randomPassword(passLength);	  	
-		 System.out.println("Default Password iS: "+this.password);
+		 System.out.println("Your Password iS: "+this.password);
+	
+		 // generating email;
+		 email=firstName.toLowerCase()+"."+lastName.toLowerCase()+"@"+department+"."+companyName;
+		 System.out.println("Your email is: "+email);
+		 
 	}
 	
 	private String setDepartment()
@@ -37,11 +45,11 @@ public class Email {
 //	    we can use Switch or if else condition
 	    
 	    if(depNumber == 1)
-	     return "Sales";
+	     return "sales";
 	    else if(depNumber == 2)
-	    	return "Devlopment";
+	    	return "devlopment";
 	    else if(depNumber == 3)
-	    	return "Accounting";
+	    	return "accounting";
 	    else
 	    	return "";
 	}
@@ -49,7 +57,7 @@ public class Email {
 	// Creating or generating random password
 	private String randomPassword(int length)
 	{
-		String passwordSet="abcdefghijklmnopqrstuvwxyz0123456789!@#$%&*";   // here we give data for creating password
+		String passwordSet="abcdefghijklmnopqrstuvwxyz0123456789!@#$%&";   // here we give data for creating password
 		char[]password=new char[length];
 		for(int i=0; i<length;i++)
 		{

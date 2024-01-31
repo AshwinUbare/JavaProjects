@@ -6,7 +6,6 @@ public class EmailAppMain {
 
 		Email m1= new Email("Anmol","Patil");
 		
-		
 	}
 
 }
