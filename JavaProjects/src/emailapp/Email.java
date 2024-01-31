@@ -20,29 +20,38 @@ public class Email {
 		 this.lastName=lastName;
 		 this.passLength=10;
 		 this.companyName="confix.com";
-		 System.out.println("Email Created: "+this.firstName+" "+this.lastName);
+		 this.mailboxCapacity=500; // it is default mailbox capacity
+		 System.out.println("New Worker: "+this.firstName+" "+this.lastName);
 		 
 		 // calling method and asking to user for department and response is store.
 		 this.department=setDepartment();
-		 System.out.println("\nDepartment: "+this.department);
 		 
-		 //calling method who gives randomPassword
-		 this.password=randomPassword(passLength);	  	
-		 System.out.println("Your Password iS: "+this.password);
+		 
+		 if(this.department!="")
+		 {
+			 System.out.println("\nDepartment: "+this.department);
+			 
+			 //calling method who gives randomPassword
+			 this.password=randomPassword(passLength);	  	
+			 System.out.println("Your Password: "+this.password);
 	
-		 // generating email;
-		 email=firstName.toLowerCase()+"."+lastName.toLowerCase()+"@"+department+"."+companyName;
-		 System.out.println("Your email is: "+email);
+			 // generating email;
+			 email=firstName.toLowerCase()+"."+lastName.toLowerCase()+"@"+department+"."+companyName;
+			 System.out.println("Your Email: "+email);
+		 }
+		 else
+			 System.out.println("\nSelect Proper Department");
 		 
 	}
 	
+	//Showing Department list to user and getting input from user
 	private String setDepartment()
 	{
-		System.out.println("Select department \n1 For Sales\n2 For Development\n3 For Accounting\n0 For none\nEnter Department name:");
+		System.out.print("Select department \n1 For Sales\n2 For Development\n3 For Accounting\n0 For none\nEnter Department name:");
 	    Scanner sc=new Scanner(System.in);
 	    int depNumber=sc.nextInt();
 	    
-//	    we can use Switch or if else condition
+	  // we can use Switch or if-else condition
 	    
 	    if(depNumber == 1)
 	     return "sales";
@@ -72,5 +81,69 @@ public class Email {
 		// type-casting: password is in char array so it is converted in to String
 	}
 	
+	
+	// set method
+	// changing mailbox capacity
+	public void setMailboxCapacity(int capacity)
+	{
+		this.mailboxCapacity=capacity;
+	}
+	
+	// storing alternating email
+	public void setAlternateEmail(String alternateEmail)
+	{
+		this.alternateEmail=alternateEmail;
+	}
+	
+	
+	// Changing password of user
+	public void changePassword(String password)
+	{
+		this.password=password;
+	}
+	
+	
+	// get methods
+	public int getMailboxCapacity()
+	{
+		return mailboxCapacity;
+	}
+	
+	public String getAlternateEmail()
+	{
+		return alternateEmail;
+	}
+	
+	public String getPassword()
+	{
+		return password;
+	}
+	
+	public String getDepartment()
+	{
+		return department;
+	}
+	
+	
+	// it can show or return the worker data to calling function
+	public String showInfo()
+	{
+		// we can print here as it is so we use return type is 'void'
+		
+		/*
+		System.out.println("\nName: "+this.firstName+" "+this.lastName);
+		System.out.println("Company Email: "+this.email);
+		System.out.println("Personal Email: "+this.alternateEmail);
+		System.out.println("Mailbox Capacity: "+this.mailboxCapacity);
+		*/
+		
+		// we can return data to calling function so use return type is String 
+		
+		return "\nName: " + firstName + " " + lastName +
+				"\nCompany Email: "+ email +
+				"\nPersonal Email: "+ alternateEmail +
+				"\nMailbox Capacity: "+ mailboxCapacity;
+		
+	}
 
 }
