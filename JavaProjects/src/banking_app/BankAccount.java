@@ -1,5 +1,7 @@
 package banking_app;
 
+import java.util.Scanner;
+
 public class BankAccount {
 
 	private String customerName;
@@ -26,6 +28,8 @@ public class BankAccount {
 		 {
 			 balance=balance+amount;
 			 previousTransaction= amount;
+			 System.out.println("Amount is Deposit Successfully");
+			 System.out.println("Current Balance: "+balance);
 		 }
 		 else
 		 {
@@ -42,6 +46,7 @@ public class BankAccount {
 			{
 				balance= balance - amount;
 				previousTransaction= -amount;
+				System.out.println("Amount is Withdraw Successfully");
 			}
 			else
 				System.out.println("Insufficient Balance");
@@ -56,6 +61,49 @@ public class BankAccount {
 	{
 		return "Account Balance: "+this.balance;
 	
+	}
+	
+	
+	// Showing option to user(Menu)
+	 void showMenu() // default is public
+	{
+		Scanner sc=new Scanner(System.in);
+		
+		int option;
+		do {
+		System.out.println("**************************************************************************");
+		System.out.println("Select the option: ");
+		System.out.println("1 For Check Balance \n2 For Deposit the Money \n3 For Withdraw the Money \n4 For Previous Transaction \n0 Exit");
+		System.out.println("**************************************************************************");
+		System.out.print("Enter the choice: ");
+		option=sc.nextInt();
+		
+		switch(option)
+		{
+			case 1:
+				System.out.println("\nAccount Balance: "+balance);
+				break;
+				
+			case 2:
+				System.out.print("\nEnter the Amount: ");
+				float deAmount=sc.nextFloat();
+				deposit(deAmount);
+				break;
+			
+			case 3:
+				System.out.print("\nEnter the Amount: ");
+				float wdAmount=sc.nextFloat();
+				withdraw(wdAmount);
+				break;
+				
+			case 0:
+				System.out.println("\n**********Exit Successfully***********");
+				break;
+				
+			default:
+				System.out.println("\nWrong Choices");
+		}
+		}while(option != 0);
 	}
 	
 	
