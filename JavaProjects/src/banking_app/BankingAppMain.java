@@ -10,6 +10,5 @@ public class BankingAppMain {
 		a1.showMenu();
 		
 		
-		
 	}
 }
