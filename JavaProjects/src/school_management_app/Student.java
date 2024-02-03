@@ -34,5 +34,9 @@ public class Student {
 		paidFees=fees;
 	}
 	
+	public String getPaidFees()
+	{
+		return "Total Fees Paid by Student: "+this.paidFees;
+	}
 	
 }

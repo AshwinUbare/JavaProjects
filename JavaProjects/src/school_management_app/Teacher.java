@@ -12,6 +12,13 @@ public class Teacher {
 		this.name=name;
 		this.salary=salary;
 	}
+	 
+	// setting or updating salary
+	public void setSalary(int salary)
+	{
+		this.salary=salary;
+	}
+	
 	
 
 }
